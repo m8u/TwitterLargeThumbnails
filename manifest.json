@@ -1,13 +1,19 @@
 {
-    "name": "Twitter Large Thumbnails",
-    "version": "1.3.2.1",
-    "description": "This extension enlarges the containers of single-media posts on twitter.com",
-    "manifest_version": 2,
-    "content_scripts": [
-        {
-            "js": ["content.js"],
-            "matches": ["https://twitter.com/*"]
-        }
-    ],
-    "icons": { "128": "icon128.png" }
+  "name": "Twitter Large Thumbnails",
+  "version": "1.3.4",
+  "description": "This extension enlarges the containers of single-media posts in Twitter so images appear in full size without cropping.",
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "js": [
+        "content.js"
+      ],
+      "matches": [
+        "https://twitter.com/*"
+      ]
+    }
+  ],
+  "icons": {
+    "128": "icon128.png"
+  }
 }
