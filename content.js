@@ -41,8 +41,8 @@ var observer = new MutationObserver(async function(mutations) {
                 //&& elementsWithSrc[i].getBoundingClientRect().top + (document.documentElement.scrollTop || document.body.scrollTop)
                 //                                > (document.documentElement.scrollTop || document.body.scrollTop) - document.documentElement.clientHeight/2) {
 
-                if (elementsWithSrc[i].naturalWidth == 0
-                || elementsWithSrc[i].naturalWidth > 504) continue;
+                if (elementsWithSrc[i].naturalWidth == 0) continue;
+                //|| elementsWithSrc[i].naturalWidth > 504) continue;
 
                 var marginsNode = elementsWithSrc[i].parentNode
                                                 .parentNode
@@ -50,26 +50,29 @@ var observer = new MutationObserver(async function(mutations) {
                 marginsNode.setAttribute("style", "margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0;");
 
 
-                // var thatNode = elementsWithSrc[i].parentNode
-                //                             .parentNode
-                //                             .parentNode
-                //                             .firstChild;
                 var thatNode = elementsWithSrc[i].parentNode
+                                            .parentNode
+                                            .parentNode
+                                            .firstChild;
+                var thatAnotherNode = elementsWithSrc[i].parentNode
                                             .parentNode
                                             .parentNode;
 
                 //console.log(elementsWithSrc[i].src+"   "+elementsWithSrc[i].naturalWidth+"x"+elementsWithSrc[i].naturalHeight);
                 // var imgSizeRatio = elementsWithSrc[i].naturalWidth / elementsWithSrc[i].naturalHeight;
                 // var newPadding = thatNode.getBoundingClientRect().width / imgSizeRatio;
-                //
-                // if (thatNode.getAttribute("style") == "padding-bottom: 56.25%;") {
-                //     thatNode.setAttribute("style", "padding-bottom: "+newPadding+"px");// animation: paddingBottomToHundred; animation-duration: .3s;");
-                // }
-                try {
-                    if (thatNode.getAttribute("style").includes("height: 510px")) {
-                        thatNode.setAttribute("style", "height: " + elementsWithSrc[i].naturalHeight + "px; width: " + elementsWithSrc[i].naturalWidth + "px");
+                // console.log(thatNode);
+                if (thatNode.getAttribute("style") == "padding-bottom: 133.333%;") {
+                    var intrinsicRatio = elementsWithSrc[i].naturalHeight / elementsWithSrc[i].naturalWidth;
+                    thatNode.setAttribute("style", "padding-bottom: "+(504 * intrinsicRatio)+"px;");// animation: paddingBottomToHundred; animation-duration: .3s;");
+                } else {
+                    try {
+                        if (thatAnotherNode.getAttribute("style").includes("height: 510px")) {
+                            thatAnotherNode.setAttribute("style", "height: " + elementsWithSrc[i].naturalHeight + "px; width: " + elementsWithSrc[i].naturalWidth + "px");
+                        }
+                    } catch (e) {
                     }
-                } catch (e) {}
+                }
             }
         }
     }
