@@ -1,16 +1,7 @@
-function getAllElementsWithAttribute(attribute) {
-    var matchingElements = [];
-    var allElements = document.getElementsByTagName('*');
-    for (var i = 0, n = allElements.length; i < n; i++) {
-        if (allElements[i].getAttribute(attribute) !== null) {
-            matchingElements.push(allElements[i]);
-        }
-    }
-    return matchingElements;
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// var style = document.getElementsByTagName("style")[0];
-// style.innerHTML += "@keyframes paddingBottomToHundred { from { padding-bottom: 56.25%; } to { padding-bottom: 100%; } }"
 
 let classNamesBlacklist = ["css-1dbjc4n r-13awgt0",
                         "css-9pa8cd",
@@ -22,65 +13,57 @@ let classNamesBlacklist = ["css-1dbjc4n r-13awgt0",
                         "r-8akbif r-orgf3d r-1udh08x r-u8s1d r-xjis5s r-1wyyakw",
                         "css-1dbjc4n r-1pz39u2 r-16y2uox r-1wbh5a2"]
 
+
 var observer = new MutationObserver(async function(mutations) {
     if (window.location.href == "https://twitter.com/compose/tweet"
     || window.location.href.includes("https://twitter.com/messages"))
         return;
 
+    await sleep(500);
+
     for (const mutation of mutations) {
         if (!mutation.addedNodes) continue;
+
+        var image = mutation.addedNodes[0];
         try {
-            if (classNamesBlacklist.includes(mutation.addedNodes[0].className)) continue;
+            if (image.className !== "css-9pa8cd" || !(image.getAttribute("src").includes("/media/")))
+                continue;
         } catch (e) {
             continue;
         }
 
-        var elementsWithSrc = getAllElementsWithAttribute("src");
-        for (var i = 0; i < elementsWithSrc.length; i++) {
-            if (elementsWithSrc[i].src.includes("/media/")) {
-                //&& elementsWithSrc[i].getBoundingClientRect().top + (document.documentElement.scrollTop || document.body.scrollTop)
-                //                                > (document.documentElement.scrollTop || document.body.scrollTop) - document.documentElement.clientHeight/2) {
+        if (image.naturalWidth == 0) continue;
 
-                if (elementsWithSrc[i].naturalWidth == 0) continue;
-                //|| elementsWithSrc[i].naturalWidth > 504) continue;
-
-                var marginsNode = elementsWithSrc[i].parentNode
-                                                .parentNode
-                                                .firstChild;
-                marginsNode.setAttribute("style", "margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0;");
+        var marginsNode = image.parentNode
+                                        .parentNode
+                                        .firstChild;
+        marginsNode.setAttribute("style", "margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0;");
 
 
-                var thatNode = elementsWithSrc[i].parentNode
-                                            .parentNode
-                                            .parentNode
-                                            .firstChild;
-                var thatAnotherNode = elementsWithSrc[i].parentNode
-                                            .parentNode
-                                            .parentNode;
+        var thatNode = image.parentNode
+                                    .parentNode
+                                    .parentNode
+                                    .firstChild;
+        var thatAnotherNode = image.parentNode
+                                    .parentNode
+                                    .parentNode;
 
-                //console.log(elementsWithSrc[i].src+"   "+elementsWithSrc[i].naturalWidth+"x"+elementsWithSrc[i].naturalHeight);
-                // var imgSizeRatio = elementsWithSrc[i].naturalWidth / elementsWithSrc[i].naturalHeight;
-                // var newPadding = thatNode.getBoundingClientRect().width / imgSizeRatio;
-                // console.log(thatNode);
-                if (thatNode.getAttribute("style") == "padding-bottom: 133.333%;") {
-                    var intrinsicRatio = elementsWithSrc[i].naturalHeight / elementsWithSrc[i].naturalWidth;
-                    thatNode.setAttribute("style", "padding-bottom: "+(504 * intrinsicRatio)+"px;");// animation: paddingBottomToHundred; animation-duration: .3s;");
-                } else {
-                    try {
-                        if (thatAnotherNode.getAttribute("style").includes("height: 510px")) {
-                            thatAnotherNode.setAttribute("style", "height: " + elementsWithSrc[i].naturalHeight + "px; width: " + elementsWithSrc[i].naturalWidth + "px");
-                        }
-                    } catch (e) {
-                    }
-                }
+
+        try {
+            if (thatAnotherNode.getAttribute("style").includes("height: 510px")) {
+                thatAnotherNode.setAttribute("style", "height: " + (504 * (image.naturalHeight / image.naturalWidth)) + "px; width: 504px");
             }
+            if (thatNode.getAttribute("style") == "padding-bottom: 133.333%;") {
+                var intrinsicRatio = image.naturalHeight / image.naturalWidth;
+                thatNode.setAttribute("style", "padding-bottom: "+(504 * intrinsicRatio)+"px;");
+            }
+        } catch (e) {
+            // console.log(e);
         }
     }
 })
 
 observer.observe(document.body, {
     childList: true, 
-    subtree: true, 
-    attributes: false, 
-    characterData: false
+    subtree: true
 })
