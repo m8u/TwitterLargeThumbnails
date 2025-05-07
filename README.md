@@ -1,7 +1,10 @@
 # TwitterLargeThumbnails
-A small content script that resizes image containers in Twitter feed to the original images sizes. Available as Chrome extension and Firefox addon.
+A browser extension that resizes single-media posts in X (Twitter) so images appear in full size without cropping.
 
-# Links
+# Screenshots
+![screenshot.jpg](screenshot.jpg)
+
+# Download
 ### Chrome Web Store
 https://chrome.google.com/webstore/detail/twitter-large-thumbnails/lhmanalklfkgpfkinflfepcepbgkpmai
 ### Firefox Browser Add-ons
