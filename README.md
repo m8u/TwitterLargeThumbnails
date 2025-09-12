@@ -1,5 +1,5 @@
-# TwitterLargeThumbnails
-A browser extension that resizes single-media posts in X (Twitter) so images appear in full size without cropping.
+# Twitter Large Thumbnails
+A browser extension which resizes single-image posts in X (Twitter) so that images appear without cropping.
 
 # Screenshots
 ![screenshot.jpg](screenshot.jpg)

@@ -1,7 +1,7 @@
 {
   "name": "Twitter Large Thumbnails",
-  "version": "1.3.7.1",
-  "description": "This extension enlarges the containers of single-media posts in X (Twitter) so images appear in full size without cropping.",
+  "version": "2.0.0",
+  "description": "This extension makes so that images in X (Twitter) appear without cropping in single-image posts. Those images which are too long are shown with a blurred background to achieve a pleasant look.",
   "manifest_version": 3,
   "content_scripts": [
     {
@@ -11,6 +11,11 @@
       "matches": [
         "https://twitter.com/*",
         "https://x.com/*"
+      ],
+      "exclude_globs": [
+        "*/status/*/photo*",
+        "*/compose/post*",
+        "*/messages*"
       ]
     }
   ],
