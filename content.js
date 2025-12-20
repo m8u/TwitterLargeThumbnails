@@ -44,12 +44,12 @@ if (isFirefox) { // responsive layout works differently in Firefox for whatever 
         }
 
         div.css-175oi2r div.css-175oi2r.r-16y2uox div.css-175oi2r.r-f8sm7e.r-13qz1uu.r-1ye8kvj section.css-175oi2r div.css-175oi2r div div.css-175oi2r div.css-175oi2r.r-1igl3o0.r-qklmqi.r-1adg3ll.r-1ny4l3l div.css-175oi2r article.css-175oi2r.r-18u37iz.r-1udh08x.r-kpt88i.r-19m1me0.r-o7ynqc.r-6416eg.r-1ny4l3l.r-1loqt21 div.css-175oi2r.r-eqz5dr.r-16y2uox.r-1wbh5a2 div.css-175oi2r.r-16y2uox.r-1wbh5a2.r-1ny4l3l div.css-175oi2r.r-18u37iz div.css-175oi2r.r-1iusvr4.r-16y2uox.r-1777fci.r-1t982j2 div.css-175oi2r.r-9aw3ui.r-a1ub67 div.css-175oi2r.r-9aw3ui div.css-175oi2r div.css-175oi2r div.css-175oi2r.r-1kqtdi0.r-1phboty.r-rs99b7.r-1867qdf.r-1udh08x.r-o7ynqc.r-6416eg.r-1ny4l3l div.css-175oi2r div.css-175oi2r.r-16y2uox.r-1pi2tsx.r-13qz1uu a.css-175oi2r.r-1pi2tsx.r-1ny4l3l.r-1loqt21 div.css-175oi2r.r-1adg3ll.r-1udh08x div.r-1p0dtai.r-1pi2tsx.r-1d2f490.r-u8s1d.r-ipm5af.r-13qz1uu div.css-175oi2r.r-1mlwlqe.r-1udh08x.r-417010.r-aqfbo4.r-agouwx.r-1p0dtai.r-1d2f490.r-u8s1d.r-zchlnj.r-ipm5af img.css-9pa8cd {
-            opacity: 1;
-            object-fit: contain;
+            opacity: 1 !important;
+            object-fit: contain !important;
         }
 
         div.css-175oi2r div.css-175oi2r div.css-175oi2r.r-16y2uox div.css-175oi2r.r-f8sm7e.r-13qz1uu.r-1ye8kvj section.css-175oi2r div.css-175oi2r div div.css-175oi2r div.css-175oi2r.r-1igl3o0.r-qklmqi.r-1adg3ll.r-1ny4l3l div.css-175oi2r article.css-175oi2r.r-18u37iz.r-1udh08x.r-kpt88i.r-19m1me0.r-o7ynqc.r-6416eg.r-1ny4l3l.r-1loqt21 div.css-175oi2r.r-eqz5dr.r-16y2uox.r-1wbh5a2 div.css-175oi2r.r-16y2uox.r-1wbh5a2.r-1ny4l3l div.css-175oi2r.r-18u37iz div.css-175oi2r.r-1iusvr4.r-16y2uox.r-1777fci.r-1t982j2 div.css-175oi2r.r-9aw3ui.r-a1ub67 div.css-175oi2r.r-9aw3ui div.css-175oi2r div.css-175oi2r div.css-175oi2r.r-1kqtdi0.r-1phboty.r-rs99b7.r-1867qdf.r-1udh08x.r-o7ynqc.r-6416eg.r-1ny4l3l div.css-175oi2r div.css-175oi2r.r-16y2uox.r-1pi2tsx.r-13qz1uu a.css-175oi2r.r-1pi2tsx.r-1ny4l3l.r-1loqt21 div.css-175oi2r.r-1adg3ll.r-1udh08x div.r-1p0dtai.r-1pi2tsx.r-1d2f490.r-u8s1d.r-ipm5af.r-13qz1uu div.css-175oi2r.r-1mlwlqe.r-1udh08x.r-417010.r-aqfbo4.r-agouwx.r-1p0dtai.r-1d2f490.r-u8s1d.r-zchlnj.r-ipm5af div.css-175oi2r.r-1niwhzg.r-vvn4in.r-u6sd8q.r-1p0dtai.r-1pi2tsx.r-1d2f490.r-u8s1d.r-zchlnj.r-ipm5af.r-13qz1uu.r-1wyyakw.r-4gszlv {
-            filter: blur(2em) brightness(0.7);
+            filter: blur(2em) brightness(0.7) !important;
         }
     `
 } else {
@@ -64,12 +64,12 @@ if (isFirefox) { // responsive layout works differently in Firefox for whatever 
         }
 
         div.css-175oi2r.r-9aw3ui > div.css-175oi2r > div.css-175oi2r.r-k200y > div.css-175oi2r.r-1kqtdi0.r-1phboty.r-rs99b7.r-1867qdf.r-1udh08x.r-o7ynqc.r-6416eg.r-1ny4l3l > div.css-175oi2r > div.css-175oi2r.r-16y2uox.r-1pi2tsx.r-13qz1uu > a.css-175oi2r.r-1pi2tsx.r-1ny4l3l.r-1loqt21 > div.css-175oi2r.r-1adg3ll.r-1udh08x > div.r-1p0dtai.r-1pi2tsx.r-1d2f490.r-u8s1d.r-ipm5af.r-13qz1uu > div.css-175oi2r.r-1mlwlqe.r-1udh08x.r-417010.r-aqfbo4.r-agouwx.r-1p0dtai.r-1d2f490.r-u8s1d.r-zchlnj.r-ipm5af > img {
-            opacity: 1;
-            object-fit: contain;
+            opacity: 1 !important;
+            object-fit: contain !important;
         }
 
         div.css-175oi2r.r-9aw3ui > div.css-175oi2r > div.css-175oi2r.r-k200y > div.css-175oi2r.r-1kqtdi0.r-1phboty.r-rs99b7.r-1867qdf.r-1udh08x.r-o7ynqc.r-6416eg.r-1ny4l3l > div.css-175oi2r > div.css-175oi2r.r-16y2uox.r-1pi2tsx.r-13qz1uu > a.css-175oi2r.r-1pi2tsx.r-1ny4l3l.r-1loqt21 > div.css-175oi2r.r-1adg3ll.r-1udh08x > div.r-1p0dtai.r-1pi2tsx.r-1d2f490.r-u8s1d.r-ipm5af.r-13qz1uu > div.css-175oi2r.r-1mlwlqe.r-1udh08x.r-417010.r-aqfbo4.r-agouwx.r-1p0dtai.r-1d2f490.r-u8s1d.r-zchlnj.r-ipm5af > div {
-            filter: blur(2em) brightness(0.7);
+            filter: blur(2em) brightness(0.7) !important;
         }
     `
 }
