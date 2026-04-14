@@ -1,6 +1,6 @@
 {
   "name": "Twitter Large Thumbnails",
-  "version": "2.1",
+  "version": "2.1.1",
   "description": "This extension makes so that images in X (Twitter) appear without cropping in single-image posts.",
   "manifest_version": 3,
   "content_scripts": [
